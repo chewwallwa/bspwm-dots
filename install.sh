@@ -36,7 +36,7 @@ echo "--> Deploying configuration files..."
 mkdir -p ~/.config
 
 # List of folders to copy
-folders=(bspwm sxhkd polybar alacritty rofi dunst nvim)
+folders=(bspwm sxhkd polybar alacritty rofi dunst nvim nwg-look gtk-3.0 gtk-4.0 xsettingsd)
 
 for folder in "${folders[@]}"; do
     if [ -d "$folder" ]; then
@@ -56,6 +56,11 @@ done
 # Copy specific files
 echo "--> Copying standalone files..."
 [ -f .zshrc ] && cp .zshrc ~/ || echo "    .zshrc not found"
+
+if [ -f .gtkrc-2.0 ]; then
+    echo "    Copying .gtkrc-2.0..."
+    cp .gtkrc-2.0 ~/
+fi
 
 # 5. Post-Installation Configuration
 echo "--> Finalizing setup..."
