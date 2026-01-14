@@ -11,7 +11,7 @@ sudo pacman -Syu --noconfirm --needed \
     alacritty zsh polybar rofi dunst feh unzip usbutils btop \
     thunar thunar-archive-plugin file-roller gvfs mousepad viewnior \
     abiword gnumeric fastfetch papirus-icon-theme redshift brightnessctl \
-    git base-devel
+    git base-devel zathura
 
 # 2. Install Yay (AUR Helper)
 if ! command -v yay &> /dev/null; then
@@ -36,7 +36,7 @@ echo "--> Deploying configuration files..."
 mkdir -p ~/.config
 
 # List of folders to copy
-folders=(bspwm sxhkd polybar alacritty rofi dunst nvim nwg-look gtk-3.0 gtk-4.0 xsettingsd)
+folders=(bspwm sxhkd polybar alacritty rofi dunst nvim nwg-look gtk-3.0 gtk-4.0 xsettingsd zathura)
 
 for folder in "${folders[@]}"; do
     if [ -d "$folder" ]; then
